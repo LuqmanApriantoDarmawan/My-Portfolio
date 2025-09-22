@@ -1,21 +1,52 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { ExternalLink, Github } from "lucide-react";
+import portfolioImage from "@/assets/portfolio-project.jpg";
+import aiResearchImage from "@/assets/ai-research-project.jpg";
+import campusEventImage from "@/assets/campus-event-project.jpg";
+
 const ProjectsSection = () => {
   const projects = [
     {
-      name: "Portfolio Website",
-      desc: "Personal branding and showcase.",
-      icon: "🌐"
+      title: "Website Portfolio",
+      description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
+      image: portfolioImage,
+      techStack: ["React", "TypeScript", "Tailwind CSS"],
+      codeUrl: "https://github.com",
+      demoUrl: "https://demo.com"
     },
     {
-      name: "AI Research Paper", 
-      desc: "Thesis on AI impact in society.",
-      icon: "🤖"
+      title: "AI Research Dashboard", 
+      description: "Penelitian tentang dampak AI dalam masyarakat dengan visualisasi data dan analisis mendalam.",
+      image: aiResearchImage,
+      techStack: ["Python", "TensorFlow", "React"],
+      codeUrl: "https://github.com",
+      demoUrl: "https://demo.com"
     },
     {
-      name: "Campus Event Platform",
-      desc: "Organized orientation system.",
-      icon: "🎓"
+      title: "Campus Event Platform",
+      description: "Platform manajemen acara kampus yang memudahkan organisasi dan partisipasi mahasiswa.",
+      image: campusEventImage,
+      techStack: ["Node.js", "MongoDB", "React"],
+      codeUrl: "https://github.com",
+      demoUrl: "https://demo.com"
     }
   ];
+
+  const getTechBadgeVariant = (tech: string) => {
+    const variants: { [key: string]: "default" | "secondary" | "outline" } = {
+      "React": "default",
+      "TypeScript": "secondary", 
+      "Tailwind CSS": "outline",
+      "Python": "default",
+      "TensorFlow": "secondary",
+      "Node.js": "outline",
+      "MongoDB": "default"
+    };
+    return variants[tech] || "outline";
+  };
 
   return (
     <section id="projects" className="py-20 bg-background">
@@ -23,44 +54,82 @@ const ProjectsSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
-              Projects
+              My Projects
             </h2>
             <div className="w-20 h-1 bg-gradient-teal mx-auto mb-6"></div>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A collection of projects that showcase my skills and passion for technology
+              Kumpulan project yang menunjukkan kemampuan dan passion saya dalam teknologi
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div 
-                key={project.name}
-                className="group animate-fade-in card-hover"
+              <Card 
+                key={project.title}
+                className="group animate-fade-in overflow-hidden border border-border hover:shadow-lg transition-all duration-300"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="bg-card p-8 rounded-xl border border-border relative overflow-hidden">
-                  {/* Background gradient effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  <div className="relative z-10">
-                    <div className="text-4xl mb-4">{project.icon}</div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
-                      {project.name}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {project.desc}
-                    </p>
-                    
-                    {/* Hover indicator */}
-                    <div className="mt-6 flex items-center text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-sm font-medium">View Details</span>
-                      <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  </div>
+                {/* Project Image */}
+                <div className="relative overflow-hidden">
+                  <AspectRatio ratio={16 / 9}>
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </AspectRatio>
                 </div>
-              </div>
+
+                <CardContent className="p-6">
+                  {/* Project Title */}
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    {project.title}
+                  </h3>
+                  
+                  {/* Project Description */}
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.techStack.map((tech) => (
+                      <Badge 
+                        key={tech} 
+                        variant={getTechBadgeVariant(tech)}
+                        className="text-xs"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex gap-3">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1"
+                      asChild
+                    >
+                      <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </a>
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      className="flex-1"
+                      asChild
+                    >
+                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
