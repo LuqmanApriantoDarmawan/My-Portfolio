@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,11 +9,14 @@ import aiResearchImage from "@/assets/ai-research-project.jpg";
 import campusEventImage from "@/assets/campus-event-project.jpg";
 
 const ProjectsSection = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
+
   const projects = [
     {
       title: "Website Portfolio",
       description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
       image: portfolioImage,
+      category: "Website",
       techStack: ["React", "TypeScript", "Tailwind CSS"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
@@ -21,6 +25,7 @@ const ProjectsSection = () => {
       title: "AI Research Dashboard", 
       description: "Penelitian tentang dampak AI dalam masyarakat dengan visualisasi data dan analisis mendalam.",
       image: aiResearchImage,
+      category: "Web App",
       techStack: ["Python", "TensorFlow", "React"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
@@ -29,11 +34,18 @@ const ProjectsSection = () => {
       title: "Campus Event Platform",
       description: "Platform manajemen acara kampus yang memudahkan organisasi dan partisipasi mahasiswa.",
       image: campusEventImage,
+      category: "Web App",
       techStack: ["Node.js", "MongoDB", "React"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
     }
   ];
+
+  const categories = ["All", "Web App", "Website", "UI/UX"];
+  
+  const filteredProjects = activeFilter === "All" 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter);
 
   const getTechBadgeVariant = (tech: string) => {
     const variants: { [key: string]: "default" | "secondary" | "outline" } = {
@@ -56,18 +68,36 @@ const ProjectsSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
               My Projects
             </h2>
-            <div className="w-20 h-1 bg-gradient-teal mx-auto mb-6"></div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6"></div>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
               Kumpulan project yang menunjukkan kemampuan dan passion saya dalam teknologi
             </p>
+            
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  onClick={() => setActiveFilter(category)}
+                  variant={activeFilter === category ? "default" : "outline"}
+                  className={`transition-all duration-300 ${
+                    activeFilter === category 
+                      ? "shadow-lg shadow-primary/25" 
+                      : "hover:shadow-md"
+                  }`}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <Card 
                 key={project.title}
-                className="group animate-fade-in overflow-hidden border border-border hover:shadow-lg transition-all duration-300"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="group animate-fade-in overflow-hidden border border-border hover:shadow-lg hover:shadow-primary/10 transition-all duration-500 transform hover:-translate-y-1"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Project Image */}
                 <div className="relative overflow-hidden">

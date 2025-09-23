@@ -13,22 +13,22 @@ const AboutSection = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"></div>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Profile Image */}
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center lg:justify-start order-1 lg:order-none">
               <div className="relative">
-                <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-xl">
+                <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-xl shadow-2xl shadow-primary/20">
                   <img
                     src={luqmanFormal}
                     alt="Luqman Formal Profile"
-                    className="w-80 h-96 rounded-xl object-cover"
+                    className="w-72 h-80 lg:w-80 lg:h-96 rounded-xl object-cover border border-border/10"
                   />
                 </div>
               </div>
             </div>
             
             {/* Content */}
-            <div className="space-y-8">
+            <div className="space-y-8 order-2 lg:order-none">
               <div>
                 <h3 className="text-3xl font-bold mb-4 text-foreground">
                   Web Developer & UI Designer
