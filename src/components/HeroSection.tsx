@@ -31,7 +31,7 @@ const HeroSection = () => {
           <div className="mb-8 relative inline-block">
             <div className="relative">
               <img src={profileImage} alt="Luqman Profile" className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mx-auto border-4 border-primary/30 shadow-glow" />
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 animate-pulse rounded-full"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 animate-pulse rounded-full my-0"></div>
             </div>
           </div>
 
