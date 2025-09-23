@@ -8,7 +8,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'Home', id: 'hero' },
     { name: 'About', id: 'about' },
-    { name: 'Skills', id: 'about' }, // Skills is part of about section
+    { name: 'Skills', id: 'skills' },
     { name: 'Projects', id: 'projects' },
     { name: 'Contact', id: 'contact' },
   ];

@@ -1,5 +1,5 @@
 import { Mail, MapPin, User, Clock } from 'lucide-react';
-import luqmanProfile from '@/assets/luqman-profile.jpg';
+import luqmanFormal from '@/assets/luqman-formal.jpg';
 
 const AboutSection = () => {
   return (
@@ -17,14 +17,12 @@ const AboutSection = () => {
             {/* Profile Image */}
             <div className="flex justify-center lg:justify-start">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary rounded-full p-1 animate-pulse">
-                  <div className="bg-background rounded-full p-2">
-                    <img
-                      src={luqmanProfile}
-                      alt="Luqman Profile"
-                      className="w-80 h-80 rounded-full object-cover"
-                    />
-                  </div>
+                <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-xl">
+                  <img
+                    src={luqmanFormal}
+                    alt="Luqman Formal Profile"
+                    className="w-80 h-96 rounded-xl object-cover"
+                  />
                 </div>
               </div>
             </div>
