@@ -1,9 +1,7 @@
 import { Mail, MapPin, User, Clock } from 'lucide-react';
 import luqmanFormal from '@/assets/luqman-formal.jpg';
-
 const AboutSection = () => {
-  return (
-    <section id="about" className="py-20 bg-background">
+  return <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -18,11 +16,7 @@ const AboutSection = () => {
             <div className="flex justify-center lg:justify-start order-1 lg:order-none">
               <div className="relative">
                 <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-xl shadow-2xl shadow-primary/20">
-                  <img
-                    src={luqmanFormal}
-                    alt="Luqman Formal Profile"
-                    className="w-72 h-80 lg:w-80 lg:h-96 rounded-xl object-cover border border-border/10"
-                  />
+                  <img src={luqmanFormal} alt="Luqman Formal Profile" className="w-72 h-80 lg:w-80 lg:h-96 rounded-xl object-cover border border-border/10" />
                 </div>
               </div>
             </div>
@@ -52,7 +46,7 @@ const AboutSection = () => {
                     <User className="text-primary w-5 h-5" />
                     <div>
                       <p className="text-sm text-primary font-medium">Name:</p>
-                      <p className="text-foreground font-semibold">Luqman Hakim</p>
+                      <p className="text-foreground font-semibold">Luqman Aprianto Darmawan</p>
                     </div>
                   </div>
                 </div>
@@ -62,7 +56,7 @@ const AboutSection = () => {
                     <Mail className="text-primary w-5 h-5" />
                     <div>
                       <p className="text-sm text-primary font-medium">Email:</p>
-                      <p className="text-foreground font-semibold">luqman@example.com</p>
+                      <p className="text-foreground font-semibold">luqmanfn17@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -98,8 +92,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
