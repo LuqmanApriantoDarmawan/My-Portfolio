@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MessageCircle, X, Send } from "lucide-react";
 import { toast } from "sonner";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Message {
   id: string;
@@ -24,6 +25,7 @@ const ChatBot = () => {
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -108,29 +110,33 @@ const ChatBot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-40 w-80 sm:w-96 h-96 bg-card border border-border rounded-lg shadow-2xl overflow-hidden">
+        <div className={`fixed z-40 bg-card border border-border rounded-lg shadow-2xl overflow-hidden ${
+          isMobile 
+            ? 'inset-x-4 bottom-24 top-20 flex flex-col'
+            : 'bottom-24 right-6 w-80 sm:w-96 h-[500px] max-h-[80vh] flex flex-col'
+        }`}>
           {/* Chat Header */}
-          <div className="bg-gradient-teal text-white p-4 border-b">
+          <div className="bg-gradient-teal text-white p-4 border-b flex-shrink-0">
             <h3 className="font-semibold">Chat with Luqman</h3>
             <p className="text-sm opacity-90">Usually replies instantly</p>
           </div>
 
           {/* Messages Container */}
-          <div className="flex-1 p-4 overflow-y-auto h-64 space-y-4 bg-background">
+          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-background min-h-0">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[80%] p-3 rounded-lg ${
+                  className={`max-w-[85%] p-3 rounded-lg break-words ${
                     message.isUser
-                      ? 'bg-primary text-primary-foreground ml-4'
-                      : 'bg-muted text-muted-foreground mr-4'
+                      ? 'bg-primary text-primary-foreground ml-2'
+                      : 'bg-muted text-muted-foreground mr-2'
                   }`}
                 >
-                  <p className="text-sm">{message.content}</p>
-                  <p className="text-xs opacity-70 mt-1">
+                  <p className="text-sm leading-relaxed">{message.content}</p>
+                  <p className="text-xs opacity-70 mt-2">
                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
@@ -138,7 +144,7 @@ const ChatBot = () => {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-muted text-muted-foreground mr-4 p-3 rounded-lg">
+                <div className="bg-muted text-muted-foreground mr-2 p-3 rounded-lg">
                   <div className="flex space-x-1">
                     <div className="w-2 h-2 bg-current rounded-full animate-bounce"></div>
                     <div className="w-2 h-2 bg-current rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
@@ -151,21 +157,21 @@ const ChatBot = () => {
           </div>
 
           {/* Input Container */}
-          <div className="p-4 border-t border-border bg-card">
-            <div className="flex space-x-2">
+          <div className="p-4 border-t border-border bg-card flex-shrink-0">
+            <div className="flex space-x-2 items-end">
               <Input
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type your message..."
                 disabled={isLoading}
-                className="flex-1"
+                className="flex-1 min-h-[40px]"
               />
               <Button
                 onClick={sendMessage}
                 disabled={isLoading || !inputMessage.trim()}
                 size="sm"
-                className="px-3"
+                className="px-4 py-2 h-[40px] flex-shrink-0"
               >
                 <Send className="w-4 h-4" />
               </Button>
