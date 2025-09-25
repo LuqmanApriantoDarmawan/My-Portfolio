@@ -14,17 +14,22 @@ serve(async (req) => {
   }
 
   try {
+    console.log("Chat function called");
+    
     if (!OPENAI_API_KEY) {
+      console.error("OpenAI API key not configured");
       throw new Error("OpenAI API key not configured");
     }
 
     const { message } = await req.json();
+    console.log("Received message:", message);
     
     if (!message || typeof message !== 'string') {
       throw new Error("Message is required");
     }
 
     // Call OpenAI API
+    console.log("Calling OpenAI API...");
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -32,7 +37,7 @@ serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o-mini",
         messages: [
           {
             role: "system",
@@ -57,6 +62,8 @@ Be personable and show your personality. Use a casual, friendly tone as if chatt
       }),
     });
 
+    console.log("OpenAI response status:", response.status);
+
     if (!response.ok) {
       const error = await response.text();
       console.error("OpenAI API error:", error);
@@ -65,6 +72,8 @@ Be personable and show your personality. Use a casual, friendly tone as if chatt
 
     const data = await response.json();
     const aiResponse = data.choices[0]?.message?.content || "Sorry, I couldn't process that message.";
+    
+    console.log("AI response:", aiResponse);
 
     return new Response(
       JSON.stringify({ response: aiResponse }),
