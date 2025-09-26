@@ -11,7 +11,7 @@ const AboutSection = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"></div>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-6 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Profile Image */}
             <div className="flex justify-center lg:justify-start order-1 lg:order-none">
               <div className="relative">
