@@ -11,18 +11,18 @@ const AboutSection = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"></div>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Profile Image */}
-            <div className="flex justify-center lg:justify-start order-1 lg:order-none animate-fade-in">
-              <div className="relative hover-scale">
-                <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-xl shadow-2xl shadow-primary/20 animate-glow">
+            <div className="flex justify-center lg:justify-start order-1 lg:order-none">
+              <div className="relative">
+                <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-xl shadow-2xl shadow-primary/20">
                   <img src={luqmanFormal} alt="Luqman Formal Profile" className="w-72 h-80 lg:w-80 lg:h-96 rounded-xl object-cover border border-border/10" />
                 </div>
               </div>
             </div>
             
             {/* Content */}
-            <div className="space-y-8 order-2 lg:order-none animate-slide-up">
+            <div className="space-y-8 order-2 lg:order-none">
               <div>
                 <h3 className="text-3xl font-bold mb-4 text-foreground">
                   Web Developer & UI Designer
@@ -41,7 +41,7 @@ const AboutSection = () => {
               
               {/* Info Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300 animate-fade-in hover-scale" style={{ animationDelay: '0.1s' }}>
+                <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-center gap-3">
                     <User className="text-primary w-5 h-5" />
                     <div>
@@ -51,7 +51,7 @@ const AboutSection = () => {
                   </div>
                 </div>
                 
-                <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300 animate-fade-in hover-scale" style={{ animationDelay: '0.2s' }}>
+                <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-center gap-3">
                     <Mail className="text-primary w-5 h-5" />
                     <div>
@@ -61,7 +61,7 @@ const AboutSection = () => {
                   </div>
                 </div>
                 
-                <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300 animate-fade-in hover-scale" style={{ animationDelay: '0.3s' }}>
+                <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-center gap-3">
                     <MapPin className="text-primary w-5 h-5" />
                     <div>
@@ -71,7 +71,7 @@ const AboutSection = () => {
                   </div>
                 </div>
                 
-                <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300 animate-fade-in hover-scale" style={{ animationDelay: '0.4s' }}>
+                <div className="bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-center gap-3">
                     <Clock className="text-primary w-5 h-5" />
                     <div>
