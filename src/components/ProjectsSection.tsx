@@ -8,6 +8,8 @@ import Portfolio from "@/assets/Portfolio-Main.png";
 import RadarTeknologi from "@/assets/Radar-Teknologi.png";
 import Restaurant from "@/assets/Restaurant.png";
 import Traveloka from "@/assets/Traveloka.png";
+import ECommerce from "@/assets/E-Commerce.png";
+import Data from "@/assets/Data.png";
 
 const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
