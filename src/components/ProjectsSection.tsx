@@ -21,6 +21,33 @@ const ProjectsSection = () => {
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
     },
+        {
+      title: "Website Portfolio",
+      description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
+      image: portfolioImage,
+      category: "Website",
+      techStack: ["React", "TypeScript", "Tailwind CSS"],
+      codeUrl: "https://github.com",
+      demoUrl: "https://demo.com"
+    },
+        {
+      title: "Website Portfolio",
+      description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
+      image: portfolioImage,
+      category: "Website",
+      techStack: ["React", "TypeScript", "Tailwind CSS"],
+      codeUrl: "https://github.com",
+      demoUrl: "https://demo.com"
+    },
+        {
+      title: "Website Portfolio",
+      description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
+      image: portfolioImage,
+      category: "Website",
+      techStack: ["React", "TypeScript", "Tailwind CSS"],
+      codeUrl: "https://github.com",
+      demoUrl: "https://demo.com"
+    },
     {
       title: "AI Research Dashboard", 
       description: "Penelitian tentang dampak AI dalam masyarakat dengan visualisasi data dan analisis mendalam.",

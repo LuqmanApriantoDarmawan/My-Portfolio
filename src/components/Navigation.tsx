@@ -19,7 +19,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Dev.Portfolio
+            My Portfolio
           </div>
 
           {/* Navigation Links */}

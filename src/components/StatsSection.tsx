@@ -6,17 +6,17 @@ const StatsSection = () => {
   const stats = [
     {
       label: "Projects Completed",
-      value: 12,
+      value: 17,
       icon: "🚀"
     },
     {
-      label: "Organizations Joined", 
-      value: 5,
-      icon: "🏢"
+      label: "Certifications Earned", 
+      value: 10,
+      icon: "📜"
     },
     {
       label: "Awards",
-      value: 3,
+      value: 4,
       icon: "🏆"
     }
   ];

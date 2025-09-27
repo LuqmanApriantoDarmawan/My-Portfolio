@@ -87,7 +87,6 @@ const ContactSection = () => {
                   { icon: '📧', label: 'Email', value: 'luqmanfn17@gmail.com', link: 'mailto:luqmanfn17@gmail.com' },
                   { icon: '💼', label: 'LinkedIn', value: 'luqman-aprianto-darmawan', link: 'https://www.linkedin.com/in/luqman-aprianto-darmawan/' },
                   { icon: '🐙', label: 'GitHub', value: 'LuqmanApriantoDarmawan', link: 'https://github.com/LuqmanApriantoDarmawan' },
-                  { icon: '📍', label: 'Location', value: 'Tangerang, Indonesia' }
                 ].map((contact, index) => (
                   <div 
                     key={contact.label}
