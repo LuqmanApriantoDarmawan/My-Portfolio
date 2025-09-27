@@ -4,46 +4,46 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { ExternalLink, Github } from "lucide-react";
-import portfolioImage from "@/assets/portfolio-project.jpg";
-import aiResearchImage from "@/assets/ai-research-project.jpg";
-import campusEventImage from "@/assets/campus-event-project.jpg";
+import Portfolio from "@/assets/Portfolio-Main.png";
+import RadarTeknologi from "@/assets/Radar-Teknologi.png";
+import Restaurant from "@/assets/Restaurant.png";
+import Traveloka from "@/assets/Traveloka.png";
 
 const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const projects = [
     {
-      title: "Website Portfolio",
+      title: "Portfolio Website",
       description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
-      image: portfolioImage,
+      image: Portfolio,
       category: "Website",
       techStack: ["React", "TypeScript", "Tailwind CSS"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
     },
         {
-      title: "Website Portfolio",
+      title: "Computer Service Web",
       description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
-      image: portfolioImage,
+      image: RadarTeknologi,
       category: "Website",
       techStack: ["React", "TypeScript", "Tailwind CSS"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
     },
         {
-      title: "Website Portfolio",
+      title: "Restaurant Website",
       description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
-      image: portfolioImage,
+      image: Restaurant,
       category: "Website",
       techStack: ["React", "TypeScript", "Tailwind CSS"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
     },
         {
-      title: "Website Portfolio",
+      title: "Travel-Booking Platform",
       description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
-      image: portfolioImage,
-      category: "Website",
+      image: Traveloka,
       techStack: ["React", "TypeScript", "Tailwind CSS"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
@@ -51,7 +51,7 @@ const ProjectsSection = () => {
     {
       title: "AI Research Dashboard", 
       description: "Penelitian tentang dampak AI dalam masyarakat dengan visualisasi data dan analisis mendalam.",
-      image: aiResearchImage,
+      image: Traveloka,
       category: "Web App",
       techStack: ["Python", "TensorFlow", "React"],
       codeUrl: "https://github.com",
@@ -60,7 +60,7 @@ const ProjectsSection = () => {
     {
       title: "Campus Event Platform",
       description: "Platform manajemen acara kampus yang memudahkan organisasi dan partisipasi mahasiswa.",
-      image: campusEventImage,
+      image: Traveloka,
       category: "Web App",
       techStack: ["Node.js", "MongoDB", "React"],
       codeUrl: "https://github.com",
