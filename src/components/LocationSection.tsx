@@ -1,55 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import React from 'react';
 
 const LocationSection = () => {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  const [mapboxToken, setMapboxToken] = useState('');
-  const [showTokenInput, setShowTokenInput] = useState(true);
-
-  const initializeMap = (token: string) => {
-    if (!mapContainer.current || !token) return;
-
-    mapboxgl.accessToken = token;
-    
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/light-v11',
-      center: [106.6406184, -6.2160287], // Longitude, Latitude for Tangerang location
-      zoom: 15,
-    });
-
-    // Add marker for the location
-    new mapboxgl.Marker({
-      color: '#3b82f6'
-    })
-    .setLngLat([106.6406184, -6.2160287])
-    .addTo(map.current);
-
-    // Add navigation controls
-    map.current.addControl(
-      new mapboxgl.NavigationControl(),
-      'top-right'
-    );
-
-    setShowTokenInput(false);
-  };
-
-  const handleTokenSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (mapboxToken.trim()) {
-      initializeMap(mapboxToken.trim());
-    }
-  };
-
-  useEffect(() => {
-    return () => {
-      map.current?.remove();
-    };
-  }, []);
 
   return (
     <section className="py-20 bg-muted/50 relative">
@@ -71,40 +22,16 @@ const LocationSection = () => {
             </p>
           </div>
 
-          {showTokenInput ? (
-            <div className="max-w-md mx-auto mb-8">
-              <div className="bg-card border border-border rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Enter Mapbox Token
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  To display the map, please enter your Mapbox public token. 
-                  You can get one from <a href="https://mapbox.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">mapbox.com</a>
-                </p>
-                <form onSubmit={handleTokenSubmit} className="space-y-4">
-                  <Input
-                    type="text"
-                    placeholder="pk.eyJ1IjoieW91cnVzZXJuYW1lIiwia..."
-                    value={mapboxToken}
-                    onChange={(e) => setMapboxToken(e.target.value)}
-                    className="bg-background border-border focus:border-primary focus:ring-primary/20"
-                  />
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-lg transition-all duration-300"
-                  >
-                    Load Map
-                  </Button>
-                </form>
-              </div>
-            </div>
-          ) : null}
-
           <div className="bg-card border border-border rounded-xl overflow-hidden shadow-lg">
-            <div 
-              ref={mapContainer} 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.228476891487!2d106.6384237!3d-6.2160287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f950f2793e8b%3A0xf016d48fc8ec4e34!2sJl.%20Komp.%20Sekneg%2C%20Panunggangan%20Utara%2C%20Kec.%20Pinang%2C%20Kota%20Tangerang%2C%20Banten%2015143!5e0!3m2!1sen!2sid!4v1695123456789!5m2!1sen!2sid"
+              width="100%"
+              height="500"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
               className="w-full h-96 md:h-[500px]"
-              style={{ minHeight: showTokenInput ? '200px' : '500px' }}
             />
           </div>
 
