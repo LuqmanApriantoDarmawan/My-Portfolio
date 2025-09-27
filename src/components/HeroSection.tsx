@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import profileImage from "@/assets/Foto_Batik.jpg";
+import profileImage from "@/assets/Foto-Coffe.jpg";
 const HeroSection = () => {
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({
