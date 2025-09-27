@@ -83,10 +83,10 @@ If you'd like to reach out, feel free to connect with me:
 ## Preview
 
 ### Home Section
-![Portfolio Home](./Portfolio-Main.png)
+![Portfolio Home](./assets/Portfolio-Main.png)
 
 ### Skills Section
-![Portfolio Skills](./Portfolio-Skills.png)
+![Portfolio Skills](./assets/Portfolio-Skills.png)
 
 ### Projects Section
-![Portfolio Projects](./Projects.png)
+![Portfolio Projects](./assets/Projects.png)
