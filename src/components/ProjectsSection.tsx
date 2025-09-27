@@ -16,11 +16,11 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: "Portfolio Website",
+      title: "Portfolio Web",
       description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
       image: Portfolio,
       category: "Website",
-      techStack: ["React", "TypeScript", "Tailwind CSS"],
+      techStack: ["TypeScript", "React", "Tailwind CSS"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
     },
@@ -34,7 +34,7 @@ const ProjectsSection = () => {
       demoUrl: "https://demo.com"
     },
         {
-      title: "Restaurant Website",
+      title: "Restaurant Web",
       description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
       image: Restaurant,
       category: "Website",
@@ -46,24 +46,25 @@ const ProjectsSection = () => {
       title: "Travel-Booking Platform",
       description: "Website portfolio pribadi yang menampilkan semua project dan kemampuan saya dengan design modern dan responsif.",
       image: Traveloka,
+      category: "Web App",
       techStack: ["React", "TypeScript", "Tailwind CSS"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
     },
     {
-      title: "AI Research Dashboard", 
+      title: "E-Commerce", 
       description: "Penelitian tentang dampak AI dalam masyarakat dengan visualisasi data dan analisis mendalam.",
-      image: Traveloka,
+      image: ECommerce,
       category: "Web App",
       techStack: ["Python", "TensorFlow", "React"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"
     },
     {
-      title: "Campus Event Platform",
+      title: "Data Visualizations",
       description: "Platform manajemen acara kampus yang memudahkan organisasi dan partisipasi mahasiswa.",
-      image: Traveloka,
-      category: "Web App",
+      image: Data,
+      category: "UI/UX",
       techStack: ["Node.js", "MongoDB", "React"],
       codeUrl: "https://github.com",
       demoUrl: "https://demo.com"

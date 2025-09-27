@@ -85,7 +85,7 @@ const ContactSection = () => {
               <div className="space-y-6">
                 {[
                   { icon: '📧', label: 'Email', value: 'luqmanfn17@gmail.com', link: 'mailto:luqmanfn17@gmail.com' },
-                  { icon: '💼', label: 'LinkedIn', value: 'luqman-aprianto-darmawan', link: 'https://www.linkedin.com/in/luqman-aprianto-darmawan/' },
+                  { icon: '💼', label: 'LinkedIn', value: 'Luqman Aprianto Darmawan', link: 'https://www.linkedin.com/in/luqman-aprianto-darmawan/' },
                   { icon: '🐙', label: 'GitHub', value: 'LuqmanApriantoDarmawan', link: 'https://github.com/LuqmanApriantoDarmawan' },
                 ].map((contact, index) => (
                   <div 
