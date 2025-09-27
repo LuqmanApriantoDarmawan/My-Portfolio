@@ -6,6 +6,7 @@ import JourneySection from "@/components/JourneySection";
 import ProjectsSection from "@/components/ProjectsSection";
 import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
+import LocationSection from "@/components/LocationSection";
 import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <ProjectsSection />
       <StatsSection />
       <ContactSection />
+      <LocationSection />
       <ChatBot />
     </main>
   );

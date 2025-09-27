@@ -84,10 +84,10 @@ const ContactSection = () => {
               
               <div className="space-y-6">
                 {[
-                  { icon: '📧', label: 'Email', value: 'luqman@example.com' },
-                  { icon: '💼', label: 'LinkedIn', value: '/in/luqman' },
-                  { icon: '🐙', label: 'GitHub', value: '/luqman' },
-                  { icon: '📍', label: 'Location', value: 'Jakarta, Indonesia' }
+                  { icon: '📧', label: 'Email', value: 'luqmanfn17@gmail.com', link: 'mailto:luqmanfn17@gmail.com' },
+                  { icon: '💼', label: 'LinkedIn', value: 'luqman-aprianto-darmawan', link: 'https://www.linkedin.com/in/luqman-aprianto-darmawan/' },
+                  { icon: '🐙', label: 'GitHub', value: 'LuqmanApriantoDarmawan', link: 'https://github.com/LuqmanApriantoDarmawan' },
+                  { icon: '📍', label: 'Location', value: 'Tangerang, Indonesia' }
                 ].map((contact, index) => (
                   <div 
                     key={contact.label}
@@ -97,7 +97,18 @@ const ContactSection = () => {
                     <span className="text-2xl">{contact.icon}</span>
                     <div>
                       <div className="text-sm text-muted-foreground">{contact.label}</div>
-                      <div className="text-foreground font-medium">{contact.value}</div>
+                      {contact.link ? (
+                        <a 
+                          href={contact.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-foreground font-medium hover:text-primary transition-colors"
+                        >
+                          {contact.value}
+                        </a>
+                      ) : (
+                        <div className="text-foreground font-medium">{contact.value}</div>
+                      )}
                     </div>
                   </div>
                 ))}
