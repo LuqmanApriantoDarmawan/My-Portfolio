@@ -79,3 +79,14 @@ If you'd like to reach out, feel free to connect with me:
 - 🐙 GitHub: https://github.com/LuqmanApriantoDarmawan
 
 ✨ Crafted with passion & continuous learning.
+
+## Preview
+
+### Home Section
+![Portfolio Home](./src/assets/Portfolio-Main.png)
+
+### Skills Section
+![Portfolio Skills](./src/assets/Portfolio-Skills.png)
+
+### Projects Section
+![Portfolio Projects](./src/assets/Projects.png)
