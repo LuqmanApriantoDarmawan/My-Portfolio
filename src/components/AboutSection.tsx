@@ -1,5 +1,6 @@
-import { Mail, MapPin, User, Clock } from 'lucide-react';
+import { Mail, MapPin, User, Clock, Download } from 'lucide-react';
 import luqmanFormal from '@/assets/luqman-formal.jpg';
+import { Button } from '@/components/ui/button';
 const AboutSection = () => {
   return <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -82,11 +83,24 @@ const AboutSection = () => {
                 </div>
               </div>
               
-              {/* Action Button */}
-              <div className="flex justify-center lg:justify-start">
-                <button className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-lg hover:shadow-primary/25 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button 
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-lg hover:shadow-primary/25 px-8 py-3 font-semibold transition-all duration-300 hover:scale-105"
+                >
                   Let's Talk
-                </button>
+                </Button>
+                <Button 
+                  variant="outline"
+                  className="px-8 py-3 font-semibold transition-all duration-300 hover:scale-105"
+                  asChild
+                >
+                  <a href="/cv.pdf" download="Luqman_Darmawan_CV.pdf">
+                    <Download className="mr-2 h-4 w-4" />
+                    Download CV
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
