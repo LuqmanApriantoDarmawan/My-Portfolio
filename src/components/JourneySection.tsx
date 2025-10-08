@@ -51,11 +51,11 @@ const JourneySection = () => {
                   key={step.year}
                   className={`flex items-center ${
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  } animate-slide-up`}
+                  } animate-slide-up group/journey`}
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   {/* Timeline dot */}
-                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-teal rounded-full flex items-center justify-center font-bold text-primary-foreground relative z-10 shadow-glow ml-0 md:ml-0">
+                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-teal rounded-full flex items-center justify-center font-bold text-primary-foreground relative z-10 shadow-glow ml-0 md:ml-0 transition-all duration-500 group-hover/journey:scale-110 group-hover/journey:shadow-[0_0_25px_rgba(20,184,166,0.6)]">
                     <span className="text-sm">{step.year}</span>
                   </div>
 
@@ -63,7 +63,7 @@ const JourneySection = () => {
                   <div className={`flex-1 ml-8 md:ml-0 ${
                     index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'
                   }`}>
-                    <div className="bg-card p-6 rounded-lg card-hover">
+                    <div className="bg-card p-6 rounded-lg card-hover border-2 border-primary/20 hover:border-primary/60 transition-all duration-500">
                       <p className="text-foreground/90 text-lg leading-relaxed font-medium">
                         {step.event}
                       </p>
