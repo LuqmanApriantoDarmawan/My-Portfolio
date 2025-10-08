@@ -12,12 +12,12 @@ const AboutSection = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"></div>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Profile Image */}
             <div className="flex justify-center lg:justify-start order-1 lg:order-none">
-              <div className="relative">
-                <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-xl shadow-2xl shadow-primary/20">
-                  <img src={luqmanFormal} alt="Luqman Formal Profile" className="w-72 h-80 lg:w-80 lg:h-96 rounded-xl object-cover border border-border/10" />
+              <div className="relative group">
+                <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-xl shadow-2xl shadow-primary/20 transition-all duration-500 group-hover:shadow-3xl group-hover:shadow-primary/40 group-hover:scale-105">
+                  <img src={luqmanFormal} alt="Luqman Formal Profile" className="w-72 h-80 lg:w-80 lg:h-96 rounded-xl object-cover border border-border/10 transition-transform duration-500 group-hover:scale-[1.02]" />
                 </div>
               </div>
             </div>
