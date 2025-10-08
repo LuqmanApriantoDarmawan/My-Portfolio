@@ -1,16 +1,28 @@
 const JourneySection = () => {
   const journeySteps = [
     {
-      year: "2022",
-      event: "Started Informatics at Gunadarma University"
+      year: "2021",
+      event: "Studied Software Engineering at SMKN 5 Tangerang"
     },
     {
-      year: "2023", 
-      event: "Joined BEM FIKTI & Campus Activities"
+      year: "2021", 
+      event: "Started building multiple web projects and exploring UI/UX design"
+    },
+    {
+      year: "2022",
+      event: "Completed an internship at Radar Teknologi Komputer as a Web Developer"
+    },
+    {
+      year: "2023",
+      event: "Earned a Certificate of Competence from BNSP in the Junior Office Operator category"
+    },
+    {
+      year: "2023",
+      event: "Began studying Information Systems at Gunadarma University"
     },
     {
       year: "2024",
-      event: "Built multiple web projects & portfolios"
+      event: "Joined BEM FIKTI and Google Developer Groups on Campus"
     },
     {
       year: "2025",
@@ -52,7 +64,7 @@ const JourneySection = () => {
                     index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'
                   }`}>
                     <div className="bg-card p-6 rounded-lg card-hover">
-                      <p className="text-foreground text-lg leading-relaxed">
+                      <p className="text-foreground/90 text-lg leading-relaxed font-medium">
                         {step.event}
                       </p>
                     </div>
