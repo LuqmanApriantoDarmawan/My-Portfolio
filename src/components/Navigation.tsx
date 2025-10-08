@@ -1,4 +1,12 @@
 import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 const Navigation = () => {
   const scrollToSection = (sectionId: string) => {
@@ -35,12 +43,32 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </Button>
+          {/* Mobile Menu */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle className="text-left bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Navigation
+                </SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col space-y-4 mt-8">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium py-2"
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </nav>
