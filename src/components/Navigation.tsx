@@ -7,6 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import logo from "@/assets/Logo_Luqman.png";
 
 const Navigation = () => {
   const scrollToSection = (sectionId: string) => {
@@ -26,8 +27,11 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            My Portfolio
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Logo" className="w-10 h-10" />
+            <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              My Portfolio
+            </span>
           </div>
 
           {/* Navigation Links */}
