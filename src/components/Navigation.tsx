@@ -7,7 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import logo from "@/assets/Logo_Luqman.png";
+import logo from "@/assets/LK_lastking_circle_glow.png";
 
 const Navigation = () => {
   const scrollToSection = (sectionId: string) => {
