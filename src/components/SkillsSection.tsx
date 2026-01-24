@@ -24,33 +24,27 @@ const SkillsSection = () => {
       skills: [
         { 
           name: 'HTML/CSS', 
-          level: 95, 
+          level: 88, 
           icon: <Globe className="w-4 h-4" />,
-          tooltip: 'Used in 50+ projects | Expert level'
+          tooltip: 'Used in 50+ projects | Advanced level'
         },
         { 
           name: 'JavaScript', 
-          level: 90, 
+          level: 78, 
           icon: <Code className="w-4 h-4" />,
-          tooltip: 'ES6+, Modern JS | Advanced level'
+          tooltip: 'ES6+, Modern JS | Intermediate level'
         },
         { 
           name: 'React', 
-          level: 85, 
+          level: 73, 
           icon: <Code className="w-4 h-4" />,
-          tooltip: 'Hooks, Context, Redux | Advanced level'
+          tooltip: 'Hooks, Context, Redux | Intermediate level'
         },
         { 
           name: 'TypeScript', 
-          level: 80, 
+          level: 68, 
           icon: <Code className="w-4 h-4" />,
           tooltip: 'Type-safe development | Intermediate level'
-        },
-        { 
-          name: 'Next.js', 
-          level: 75, 
-          icon: <Globe className="w-4 h-4" />,
-          tooltip: 'SSR, SSG, API routes | Intermediate level'
         }
       ]
     },
@@ -61,56 +55,56 @@ const SkillsSection = () => {
       skills: [
         { 
           name: 'Figma', 
-          level: 85, 
+          level: 78, 
           icon: <Figma className="w-4 h-4" />,
-          tooltip: 'Design systems, prototyping | Advanced level'
+          tooltip: 'Design systems, prototyping | Intermediate level'
         },
         { 
           name: 'Responsive Design', 
-          level: 90, 
+          level: 83, 
           icon: <Smartphone className="w-4 h-4" />,
-          tooltip: 'Mobile-first approach | Expert level'
+          tooltip: 'Mobile-first approach | Advanced level'
         },
         { 
           name: 'Tailwind CSS', 
-          level: 88, 
+          level: 83, 
           icon: <Palette className="w-4 h-4" />,
           tooltip: 'Utility-first CSS | Advanced level'
         },
         { 
           name: 'UI Animation', 
-          level: 75, 
+          level: 68, 
           icon: <Smartphone className="w-4 h-4" />,
           tooltip: 'Framer Motion, CSS animations | Intermediate level'
         }
       ]
     },
     {
-      title: 'Backend & Tools',
+      title: 'Backend & Database',
       color: 'from-green-500 to-teal-500',
       icon: <Server className="w-6 h-6" />,
       skills: [
         { 
-          name: 'Node.js', 
-          level: 75, 
-          icon: <Server className="w-4 h-4" />,
-          tooltip: 'Express, API development | Intermediate level'
+          name: 'SQL (MySQL/PostgreSQL)', 
+          level: 73, 
+          icon: <Database className="w-4 h-4" />,
+          tooltip: 'Database design, queries | Intermediate level'
         },
         { 
-          name: 'Git/GitHub', 
-          level: 85, 
-          icon: <GitBranch className="w-4 h-4" />,
-          tooltip: 'Version control, CI/CD | Advanced level'
-        },
-        { 
-          name: 'RESTful APIs', 
-          level: 80, 
+          name: 'RESTful API', 
+          level: 73, 
           icon: <Globe className="w-4 h-4" />,
           tooltip: 'API design, integration | Intermediate level'
         },
         { 
+          name: 'Git/GitHub', 
+          level: 83, 
+          icon: <GitBranch className="w-4 h-4" />,
+          tooltip: 'Version control, CI/CD | Advanced level'
+        },
+        { 
           name: 'Firebase', 
-          level: 70, 
+          level: 68, 
           icon: <Database className="w-4 h-4" />,
           tooltip: 'Authentication, database | Intermediate level'
         }
