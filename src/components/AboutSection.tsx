@@ -12,22 +12,27 @@ const AboutSection = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto"></div>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-0 lg:gap-0 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             {/* Profile Image */}
-            <div className="flex justify-center lg:justify-start order-1 lg:order-none">
+            <div className="flex justify-center lg:justify-center order-1 lg:order-none">
               <div className="relative group">
-                <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-xl shadow-2xl shadow-primary/20 transition-all duration-500 group-hover:shadow-3xl group-hover:shadow-primary/40 group-hover:scale-105">
-                  <img src={luqmanFormal} alt="Luqman Formal Profile" className="w-72 h-80 lg:w-80 lg:h-96 rounded-xl object-cover border border-border/10 transition-transform duration-500 group-hover:scale-[1.02]" />
+                <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-2xl shadow-2xl shadow-primary/20 transition-all duration-500 group-hover:shadow-3xl group-hover:shadow-primary/40 group-hover:scale-105">
+                  {/* Mobile: 280x320, Tablet: 300x360, Desktop: 320x400 */}
+                  <img 
+                    src={luqmanFormal} 
+                    alt="Luqman Formal Profile" 
+                    className="w-[280px] h-[320px] sm:w-[300px] sm:h-[360px] lg:w-[320px] lg:h-[400px] rounded-2xl object-cover border border-border/10 transition-transform duration-500 group-hover:scale-[1.02]" 
+                  />
                 </div>
               </div>
             </div>
             
             {/* Content */}
-            <div className="space-y-8 order-2 lg:order-none">
+            <div className="space-y-6 lg:space-y-8 order-2 lg:order-none text-center lg:text-left">
               <div>
-                <h3 className="text-3xl font-bold mb-4 text-foreground">
-                  Web Developer & UI Designer
-                </h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-foreground">
+                Web Developer & UI Designer
+              </h3>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   I'm a passionate web developer with 5 years of experience creating beautiful, functional, and 
                   user-centered digital experiences. I am always looking to learn new technologies and 
@@ -84,7 +89,7 @@ const AboutSection = () => {
               </div>
               
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start px-4 sm:px-0">
                 <Button 
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                   className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-lg hover:shadow-primary/25 px-8 py-3 font-semibold transition-all duration-300 hover:scale-105"
