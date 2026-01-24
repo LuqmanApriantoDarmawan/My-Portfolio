@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { 
   Code, 
@@ -15,6 +15,26 @@ import {
 
 const SkillsSection = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const skillCategories = [
     {
@@ -114,7 +134,7 @@ const SkillsSection = () => {
 
   return (
     <TooltipProvider>
-      <section id="skills" className="py-20 bg-muted/50">
+      <section id="skills" className="py-20 bg-muted/50" ref={sectionRef}>
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -172,11 +192,11 @@ const SkillsSection = () => {
                             <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                               <div
                                 className={`h-full bg-gradient-to-r ${category.color} rounded-full transition-all duration-1000 ease-out transform ${
-                                  hoveredSkill === `${categoryIndex}-${skillIndex}` ? 'scale-105' : ''
+                                  hoveredSkill === `${categoryIndex}-${skillIndex}` ? 'scale-y-110' : ''
                                 }`}
                                 style={{ 
-                                  width: `${skill.level}%`,
-                                  animationDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.05)}s`
+                                  width: isVisible ? `${skill.level}%` : '0%',
+                                  transitionDelay: `${(categoryIndex * 200) + (skillIndex * 100)}ms`
                                 }}
                               ></div>
                             </div>
