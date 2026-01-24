@@ -1,8 +1,31 @@
 import { Mail, MapPin, User, Clock, Download } from 'lucide-react';
 import luqmanFormal from '@/assets/luqman-formal.jpg';
 import { Button } from '@/components/ui/button';
+import { useEffect, useRef, useState } from 'react';
+
 const AboutSection = () => {
-  return <section id="about" className="py-20 bg-background">
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return <section id="about" ref={sectionRef} className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -13,8 +36,14 @@ const AboutSection = () => {
           </div>
           
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-            {/* Profile Image */}
-            <div className="flex justify-center lg:justify-center order-1 lg:order-none">
+            {/* Profile Image with fade-in from left */}
+            <div 
+              className={`flex justify-center lg:justify-center order-1 lg:order-none transition-all duration-700 ease-out ${
+                isVisible 
+                  ? 'opacity-100 translate-x-0' 
+                  : 'opacity-0 -translate-x-16'
+              }`}
+            >
               <div className="relative group">
                 <div className="bg-gradient-to-r from-primary via-accent to-secondary p-1 rounded-2xl shadow-2xl shadow-primary/20 transition-all duration-500 group-hover:shadow-3xl group-hover:shadow-primary/40 group-hover:scale-105">
                   {/* Mobile: 280x320, Tablet: 300x360, Desktop: 320x400 */}
@@ -27,10 +56,16 @@ const AboutSection = () => {
               </div>
             </div>
             
-            {/* Content */}
-            <div className="space-y-6 lg:space-y-8 order-2 lg:order-none text-center lg:text-left">
+            {/* Content with fade-in from right */}
+            <div 
+              className={`space-y-6 lg:space-y-8 order-2 lg:order-none text-center lg:text-left transition-all duration-700 ease-out delay-200 ${
+                isVisible 
+                  ? 'opacity-100 translate-x-0' 
+                  : 'opacity-0 translate-x-16'
+              }`}
+            >
               <div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-foreground">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-foreground">
                 Web Developer & UI Designer
               </h3>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
