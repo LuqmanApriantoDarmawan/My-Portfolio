@@ -137,7 +137,9 @@ const SkillsSection = () => {
       <section id="skills" className="py-20 bg-muted/50" ref={sectionRef}>
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
+            <div className={`text-center mb-16 transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
                 My <span className="text-primary">Skills</span>
               </h2>
@@ -151,8 +153,10 @@ const SkillsSection = () => {
               {skillCategories.map((category, categoryIndex) => (
                 <div
                   key={category.title}
-                  className="group relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2"
-                  style={{ animationDelay: `${categoryIndex * 0.1}s` }}
+                  className={`group relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-700 hover:-translate-y-2 ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                  }`}
+                  style={{ transitionDelay: `${(categoryIndex + 1) * 150}ms` }}
                 >
                   {/* Category Header */}
                   <div className="flex items-center gap-4 mb-8">

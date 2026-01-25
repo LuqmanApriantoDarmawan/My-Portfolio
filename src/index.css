@@ -74,7 +74,64 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  /* Keep same dark theme for consistency */
+  /* Light theme */
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 220 13% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 10%;
+
+    --primary: 184 100% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 92%;
+    --secondary-foreground: 220 13% 10%;
+
+    --muted: 220 13% 92%;
+    --muted-foreground: 220 13% 40%;
+
+    --accent: 184 100% 30%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 85%;
+    --input: 220 13% 92%;
+    --ring: 184 100% 30%;
+
+    /* Portfolio specific tokens - light mode */
+    --hero-glow: 184 100% 30%;
+    --timeline-line: 220 13% 80%;
+    --card-hover: 220 13% 96%;
+    --stats-counter: 184 100% 30%;
+    --contact-glow: 184 100% 30%;
+
+    /* Gradients - light mode */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(220 13% 95%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(220 13% 98%) 100%);
+    --gradient-teal: linear-gradient(135deg, hsl(184 100% 30%) 0%, hsl(184 100% 40%) 100%);
+
+    /* Shadows - light mode */
+    --shadow-glow: 0 0 40px hsl(var(--hero-glow) / 0.2);
+    --shadow-card: 0 10px 30px -10px hsl(220 13% 50% / 0.15);
+    --shadow-contact: 0 0 20px hsl(var(--contact-glow) / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Dark theme */
   .dark {
     --background: 220 13% 7%;
     --foreground: 0 0% 93%;
@@ -103,6 +160,24 @@ All colors MUST be HSL.
     --border: 220 13% 20%;
     --input: 220 13% 15%;
     --ring: 184 100% 35%;
+
+    /* Portfolio specific tokens - dark mode */
+    --hero-glow: 184 100% 35%;
+    --timeline-line: 220 13% 25%;
+    --card-hover: 220 13% 12%;
+    --stats-counter: 184 100% 35%;
+    --contact-glow: 184 100% 35%;
+
+    /* Gradients - dark mode */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(220 13% 10%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(220 13% 12%) 100%);
+    --gradient-teal: linear-gradient(135deg, hsl(184 100% 35%) 0%, hsl(184 100% 45%) 100%);
+
+    /* Shadows - dark mode */
+    --shadow-glow: 0 0 40px hsl(var(--hero-glow) / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(220 13% 5% / 0.5);
+    --shadow-contact: 0 0 20px hsl(var(--contact-glow) / 0.4);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
