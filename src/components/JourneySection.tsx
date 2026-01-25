@@ -1,4 +1,27 @@
+import { useState, useEffect, useRef } from 'react';
+
 const JourneySection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const journeySteps = [
     {
       year: "2021",
@@ -31,10 +54,12 @@ const JourneySection = () => {
   ];
 
   return (
-    <section id="journey" className="py-20 bg-card/30">
+    <section id="journey" className="py-20 bg-card/30" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16 animate-slide-up">
+          <div className={`text-center mb-16 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
               My Journey
             </h2>
@@ -43,16 +68,20 @@ const JourneySection = () => {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-px timeline-line"></div>
+            <div className={`absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-px timeline-line transition-all duration-1000 ${
+              isVisible ? 'opacity-100' : 'opacity-0'
+            }`}></div>
 
             <div className="space-y-12">
               {journeySteps.map((step, index) => (
                 <div 
-                  key={step.year}
+                  key={`${step.year}-${index}`}
                   className={`flex items-center ${
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  } animate-slide-up group/journey`}
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  } group/journey transition-all duration-700 ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                  }`}
+                  style={{ transitionDelay: `${(index + 1) * 150}ms` }}
                 >
                   {/* Timeline dot */}
                   <div className="flex-shrink-0 w-16 h-16 bg-gradient-teal rounded-full flex items-center justify-center font-bold text-primary-foreground relative z-10 shadow-glow ml-0 md:ml-0 transition-all duration-500 group-hover/journey:scale-110 group-hover/journey:shadow-[0_0_25px_rgba(20,184,166,0.6)]">

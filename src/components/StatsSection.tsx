@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const StatsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   
   const stats = [
     {
@@ -48,30 +49,32 @@ const StatsSection = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
+      ([entry]) => {
+        if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.disconnect();
         }
       },
       { threshold: 0.3 }
     );
 
-    const section = document.getElementById('stats');
-    if (section) {
-      observer.observe(section);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="stats" className="py-20 bg-card/30 relative overflow-hidden">
+    <section id="stats" className="py-20 bg-card/30 relative overflow-hidden" ref={sectionRef}>
       {/* Background pattern */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className={`text-center mb-16 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
               Achievements
             </h2>
@@ -82,8 +85,10 @@ const StatsSection = () => {
             {stats.map((stat, index) => (
               <div 
                 key={stat.label}
-                className="text-center bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-border animate-counter"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className={`text-center bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-border transition-all duration-700 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                }`}
+                style={{ transitionDelay: `${(index + 1) * 150}ms` }}
               >
                 <div className="text-4xl mb-4">{stat.icon}</div>
                 <div className="text-5xl font-bold text-primary mb-2">
