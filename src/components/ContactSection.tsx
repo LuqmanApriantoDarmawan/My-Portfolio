@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,6 +6,26 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -58,7 +78,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-background relative">
+    <section id="contact" className="py-20 bg-background relative" ref={sectionRef}>
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-glow"></div>
@@ -67,7 +87,9 @@ const ContactSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className={`text-center mb-16 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
               Get in Touch
             </h2>
@@ -79,7 +101,9 @@ const ContactSection = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Info */}
-            <div className="animate-slide-up">
+            <div className={`transition-all duration-700 delay-200 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+            }`}>
               <h3 className="text-2xl font-semibold text-foreground mb-8">Let's Connect</h3>
               
               <div className="space-y-6">
@@ -115,7 +139,9 @@ const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <div className={`transition-all duration-700 delay-300 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+            }`}>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="animate-glow">
                   <Input
