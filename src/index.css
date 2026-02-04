@@ -202,6 +202,19 @@ All colors MUST be HSL.
   html {
     scroll-behavior: smooth;
   }
+
+  /* Smooth theme transitions */
+  html.dark,
+  html.light,
+  html.dark *,
+  html.light * {
+    transition: background-color 0.3s ease, 
+                border-color 0.3s ease, 
+                color 0.3s ease,
+                box-shadow 0.3s ease,
+                fill 0.3s ease,
+                stroke 0.3s ease;
+  }
 }
 
 @layer utilities {
