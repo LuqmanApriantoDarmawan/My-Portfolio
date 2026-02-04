@@ -1,6 +1,19 @@
 import { Button } from "@/components/ui/button";
 import profileImage from "@/assets/Foto-Coffe.jpg";
+import { useEffect, useState } from "react";
+
 const HeroSection = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({
       behavior: 'smooth'
@@ -12,16 +25,34 @@ const HeroSection = () => {
     });
   };
   return <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden pt-20">
-      {/* Background glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5"></div>
+      {/* Parallax background layers */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+      ></div>
       
-      {/* Floating particles effect */}
+      {/* Parallax gradient orbs */}
+      <div 
+        className="absolute -top-40 -left-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl"
+        style={{ transform: `translateY(${scrollY * 0.4}px) translateX(${scrollY * 0.1}px)` }}
+      ></div>
+      <div 
+        className="absolute -bottom-40 -right-40 w-96 h-96 bg-accent/15 rounded-full blur-3xl"
+        style={{ transform: `translateY(${scrollY * -0.2}px) translateX(${scrollY * -0.1}px)` }}
+      ></div>
+      <div 
+        className="absolute top-1/3 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-2xl"
+        style={{ transform: `translateY(${scrollY * 0.25}px)` }}
+      ></div>
+      
+      {/* Floating particles effect with parallax */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => <div key={i} className="absolute w-1 h-1 bg-primary/30 rounded-full animate-pulse" style={{
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
         animationDelay: `${Math.random() * 3}s`,
-        animationDuration: `${2 + Math.random() * 2}s`
+        animationDuration: `${2 + Math.random() * 2}s`,
+        transform: `translateY(${scrollY * (0.1 + Math.random() * 0.3)}px)`
       }} />)}
       </div>
 
