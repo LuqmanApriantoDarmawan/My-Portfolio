@@ -28,6 +28,20 @@ serve(async (req) => {
       throw new Error("Message is required");
     }
 
+    // Security: enforce strict character limit to prevent token abuse
+    const MAX_MESSAGE_LENGTH = 1000;
+    if (message.length > MAX_MESSAGE_LENGTH) {
+      return new Response(
+        JSON.stringify({
+          error: `Message too long. Maximum ${MAX_MESSAGE_LENGTH} characters allowed.`,
+        }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+
     // Call OpenAI API
     console.log("Calling OpenAI API...");
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
